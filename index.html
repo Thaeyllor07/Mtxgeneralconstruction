@@ -334,14 +334,10 @@ footer {
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full bg-white"><!-- LOGO FIXO -->
-  <div class="logo-fixed"><img src="src/logomoderno.png" alt="MTX Logo" style="height: 110%; width: auto; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));">
-  </div><!-- NAVBAR FIXO -->
+  <div class="logo-fixed"><a href="index.html"><img src="src/logomoderno.png" alt="MTX Logo" style="height: 110%; width: auto; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));"></a></div><!-- NAVBAR FIXO -->
   <nav class="nav-fixed" id="navbar">
    <div class="max-w-7xl mx-auto px-10 py-6 flex justify-end items-center">
-    <div class="hidden md:flex items-center gap-10"><a href="#home" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">Home</a> <a href="#about" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">About</a> <a href="#services" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">Services</a> <a href="#projects" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">Portfolio</a> <a href="mailto:contact@mtxgeneralconstruction.com?subject=Project Inquiry&amp;body=Hello MTX General Construction,%0D%0A%0D%0AI would like to request more information about your services." class="btn-primary px-8 py-4 rounded-lg text-sm font-semibold shadow-2xl">Contact</a>
-    </div>
-   </div>
-  </nav><!-- Mobile Menu -->
+<div class="hidden md:flex items-center gap-10"><a href="#home" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">Home</a><a href="#about" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">About</a><a href="#services" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">Services</a><a href="#projects" class="nav-link text-slate-700 hover:text-blue-600 text-sm tracking-wide">Portfolio</a><div class="flex items-center gap-2 text-sm text-white"><span class="text-lg">🇺🇸</span><span>Boston - USA</span></div><a href="tel:+17742852685" class="flex items-center gap-2 text-sm text-white hover:text-blue-300 transition"><i data-lucide="phone" class="w-4 h-4"></i><span>+1 (774) 285-2685</span></a><a href="mailto:contact@mtxgeneralconstruction.com?subject=Project Inquiry&amp;body=Hello MTX General Construction,%0D%0A%0D%0AI would like to request more information about your services." class="btn-primary px-8 py-4 rounded-lg text-sm font-semibold shadow-2xl">Contact</a></div>  </nav><!-- Mobile Menu -->
   <div class="mobile-menu hidden md:hidden" id="mobileMenu" style="display:none;"><button class="absolute top-6 right-6 text-slate-900" onclick="toggleMobile()"> <i data-lucide="x" class="w-7 h-7"></i> </button> <a href="#home" onclick="toggleMobile()" class="text-slate-900 text-2xl font-medium">Home</a> <a href="#about" onclick="toggleMobile()" class="text-slate-900 text-2xl font-medium">About</a> <a href="#services" onclick="toggleMobile()" class="text-slate-900 text-2xl font-medium">Services</a> <a href="#projects" onclick="toggleMobile()" class="text-slate-900 text-2xl font-medium">Projects</a> <a href="#contact" onclick="toggleMobile()" class="btn-primary px-8 py-3 rounded text-lg font-semibold">Contact</a>
   </div><!-- Hero Section -->
   <section id="home" class="hero-bg min-h-[90vh] flex items-center grid-pattern relative overflow-hidden">
@@ -355,7 +351,7 @@ footer {
      <p class="text-blue-300 text-sm font-semibold tracking-[4px] uppercase mb-4 animate-fade-up">Building and renovating</p>
      <h2 class="font-display text-5xl md:text-7xl text-white leading-tight mb-6 animate-fade-up animate-delay-1" id="hero-title"> You dream it. We can build it </h2>
      <div class="w-24 h-1 bg-blue-500 rounded-full mb-6"></div>
-     <p class="text-white/80 text-lg md:text-xl max-w-xl mb-10 animate-fade-up animate-delay-2 leading-relaxed" id="hero-subtitle">Advanced engineering, efficient management and commitment to excellence in every project we deliver.</p>
+     <p class="text-white/80 text-lg md:text-xl max-w-xl mb-10 animate-fade-up animate-delay-2 leading-relaxed" id="hero-subtitle">We are specialized in Decking, Siding and Framing installation.</p>
      <div class="flex flex-wrap gap-4 animate-fade-up animate-delay-3"><a href="#services" class="btn-primary px-8 py-4 rounded-lg font-semibold text-sm inline-flex items-center gap-2 shadow-2xl"> Our Services <i data-lucide="arrow-right" class="w-4 h-4"></i> </a> <a href="Projects.html" class="border border-white/30 backdrop-blur-md text-white px-8 py-4 rounded-lg font-semibold text-sm hover:bg-white/10 transition-all inline-flex items-center gap-2"> View Projects </a>
      </div>
     </div><!-- STATS -->
@@ -437,193 +433,435 @@ With over 10+ years of experience serving the Boston region, MTX Construction ha
     </div>
    </div>
   </section><!-- Services Section -->
-  <section id="services" class="py-24 bg-gray-100">
+  # Seção Atualizada dos Services
+
+Substitua TODA a seção atual de services por esta abaixo:
+
+```html
+<!-- Services Section -->
+<section id="services" class="py-24 bg-gray-100">
    <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-     <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">What We Do</p>
-     <h2 class="font-display text-4xl md:text-5xl text-slate-900 mb-4" id="services-title">Our Services</h2>
-     <p class="text-slate-600">Complete construction and renovation solutions for small and large projects.</p>
-    </div>
-    <div class="grid md:grid-cols-3 gap-8">
-     <div class="service-card">
-      <div class="service-card-img overflow-hidden">
 
-    <img 
-        src="src/cozinhaindex.jpg"
-        alt="Kitchen Remodeling"
-        class="w-full h-full object-cover"
-    >
+      <div class="text-center max-w-2xl mx-auto mb-16">
+         <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">
+            What We Do
+         </p>
 
-</div>
-      <div class="p-8">
-       <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6"><i data-lucide="building" class="w-7 h-7 text-slate-700"></i>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-3">Kitchen Remodeling & Construction</h3>
-       <p class="text-slate-600 text-sm leading-relaxed">We create modern, functional, and high-quality kitchens with innovative designs and expert craftsmanship.</p>
+         <h2 class="font-display text-4xl md:text-5xl text-slate-900 mb-4" id="services-title">
+            Our Services
+         </h2>
+
+         <p class="text-slate-600">
+            Complete construction and renovation solutions for small and large projects.
+         </p>
       </div>
-     </div>
-     <div class="service-card">
-      <div class="service-card-img overflow-hidden">
 
-    <img 
-        src="src/deckindex.jpg"
-        alt="Kitchen Remodeling"
-        class="w-full h-full object-cover"
-    >
+      <div class="grid md:grid-cols-3 gap-8">
 
-</div>
-      <div class="p-8">
-       <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6"><i data-lucide="home" class="w-7 h-7 text-slate-700"></i>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-3">Deck Construction</h3>
-       <p class="text-slate-600 text-sm leading-relaxed">Modern and durable deck construction with quality materials and expert craftsmanship.</p>
+         <!-- Kitchen -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+               <img
+                  src="src/cozinhaindex.jpg"
+                  alt="Kitchen Remodeling"
+                  class="w-full h-full object-cover"
+               >
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="building" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Kitchen Remodeling & Construction
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  We create modern, functional, and high-quality kitchens with innovative designs and expert craftsmanship.
+               </p>
+
+            </div>
+
+         </div>
+
+
+         <!-- Deck -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+               <img
+                  src="src/deckindex.jpg"
+                  alt="Deck Construction"
+                  class="w-full h-full object-cover"
+               >
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="home" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  New Deck or renovation
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  Professionals specializing in deck construction and new deck building.
+               </p>
+
+            </div>
+
+         </div>
+
+
+         <!-- Painting -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+
+               <div class="w-full h-[288px] overflow-hidden rounded-t-2xl">
+                  <img
+                     src="src/pinturaindex.jpg"
+                     alt="Interior & Exterior Painting"
+                     class="w-full h-full object-cover object-center"
+                  />
+               </div>
+
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="landmark" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Interior & Exterior Painting
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  Professional painting services with clean finishes, durability, and premium quality.
+               </p>
+
+            </div>
+
+         </div>
+
+
+         <!-- Window -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+
+               <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
+                  <img
+                     src="src/janelaindex.jpg"
+                     alt="Modern Window Solutions"
+                     class="w-full h-full object-cover object-center"
+                  />
+               </div>
+
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="factory" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Modern Window Solutions
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  Professional window installation with durability, style, and high-quality craftsmanship.
+               </p>
+
+            </div>
+
+         </div>
+
+
+         <!-- Roof -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+
+               <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
+                  <img
+                     src="src/telhadoindex.jpg"
+                     alt="Roof Installation & Repair"
+                     class="w-full h-full object-cover object-center"
+                  />
+               </div>
+
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="wrench" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Roof Installation & Repair
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  Reliable roofing solutions built with strength, quality, and attention to detail.
+               </p>
+
+            </div>
+
+         </div>
+
+
+         <!-- Stairs -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+
+               <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
+                  <img
+                     src="src/escadaindex.jpg"
+                     alt="Custom Stair Construction"
+                     class="w-full h-full object-cover object-center"
+                  />
+               </div>
+
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="clipboard-list" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Custom Stair Construction
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  We build modern and durable stairs with quality craftsmanship, functional design, and elegant finishes for every space.
+               </p>
+
+            </div>
+
+         </div>
+
+
+         <!-- Flooring -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+
+               <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
+                  <img
+                     src="src/deckprojeto.jpg"
+                     alt="Flooring Installation"
+                     class="w-full h-full object-cover object-center"
+                  />
+               </div>
+
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="layout-panel-top" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Siding
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  
+                Team with high knowledge about siding.
+               </p>
+
+            </div>
+
+         </div>
+
+         <!-- Flooring -->
+         <div class="service-card">
+
+            <div class="service-card-img overflow-hidden">
+
+               <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
+                  <img
+                     src="src/deckprojeto.jpg"
+                     alt="Flooring Installation"
+                     class="w-full h-full object-cover object-center"
+                  />
+               </div>
+
+            </div>
+
+            <div class="p-8">
+
+               <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <i data-lucide="layout-panel-top" class="w-7 h-7 text-slate-700"></i>
+               </div>
+
+               <h3 class="text-xl font-bold text-slate-900 mb-3">
+                  Framing
+               </h3>
+
+               <p class="text-slate-600 text-sm leading-relaxed">
+                  Expert in reading framing project plans and construction execution
+               </p>
+
+            </div>
+
+         </div>
+
       </div>
-     </div>
-     <div class="service-card">
-      <div class="service-card-img overflow-hidden">
-
-    <div class="w-full h-[288px] overflow-hidden rounded-t-2xl">
-  <img 
-    src="src/pinturaindex.jpg"
-    alt="Interior & Exterior Painting"
-    class="w-full h-full object-cover object-center"
-  />
-</div>
-
-</div>
-      <div class="p-8">
-       <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6"><i data-lucide="landmark" class="w-7 h-7 text-slate-700"></i>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-3">Interior & Exterior Painting</h3>
-       <p class="text-slate-600 text-sm leading-relaxed">Professional painting services with clean finishes, durability, and premium quality.</p>
-      </div>
-     </div>
-     <div class="service-card">
-      <div class="service-card-img overflow-hidden">
-
-    <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
-  <img 
-    src="src/janelaindex.jpg"
-    alt="Interior & Exterior Painting"
-    class="w-full h-full object-cover object-center"
-  />
-</div>
-
-</div>
-      <div class="p-8">
-       <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6"><i data-lucide="factory" class="w-7 h-7 text-slate-700"></i>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-3">Modern Window Solutions</h3>
-       <p class="text-slate-600 text-sm leading-relaxed">Professional window installation with durability, style, and high-quality craftsmanship.</p>
-      </div>
-     </div>
-     <div class="service-card">
-      <div class="service-card-img overflow-hidden">
-
-    <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
-  <img 
-    src="src/telhadoindex.jpg"
-    alt="Interior & Exterior Painting"
-    class="w-full h-full object-cover object-center"
-  />
-</div>
-
-</div>
-      <div class="p-8">
-       <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6"><i data-lucide="wrench" class="w-7 h-7 text-slate-700"></i>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-3">Roof Installation & Repair</h3>
-       <p class="text-slate-600 text-sm leading-relaxed">Reliable roofing solutions built with strength, quality, and attention to detail.</p>
-      </div>
-     </div>
-     <div class="service-card">
-      <div class="service-card-img overflow-hidden">
-
-    <div class="w-full h-[220px] overflow-hidden rounded-t-2xl">
-  <img 
-    src="src/escadaindex.jpg"
-    alt="Interior & Exterior Painting"
-    class="w-full h-full object-cover object-center"
-  />
-</div>
-
-</div>
-      <div class="p-8">
-       <div class="service-icon w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl flex items-center justify-center mb-6"><i data-lucide="clipboard-list" class="w-7 h-7 text-slate-700"></i>
-       </div>
-       <h3 class="text-xl font-bold text-slate-900 mb-3">Custom Stair Construction</h3>
-       <p class="text-slate-600 text-sm leading-relaxed">We build modern and durable stairs with quality craftsmanship, functional design, and elegant finishes for every space.</p>
-      </div>
-      
-     </div>
-    </div>
    </div>
-  </section><!-- Projects Section -->
-  <section id="projects" class="py-24 bg-gray-100">
-   <div class="max-w-7xl mx-auto px-6">
+</section>
+```
+
+Lembre-se de adicionar a imagem:
+
+```html
+src/flooringindex.jpg
+```
+
+na pasta:
+
+```html
+src
+```
+<!-- Projects Section -->
+<section id="projects" class="py-24 bg-gray-100">
+
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- TITULO -->
     <div class="text-center max-w-2xl mx-auto mb-16">
-     <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">Portfolio</p>
-     <h2 class="font-display text-4xl md:text-5xl text-slate-900 mb-4">Featured Projects</h2>
-     <p class="text-slate-600">Discover some of our most recent and impactful projects.</p>
+
+      <p class="text-blue-600 text-sm font-semibold tracking-widest uppercase mb-3">
+        Portfolio
+      </p>
+
+      <h2 class="font-display text-4xl md:text-5xl text-slate-900 mb-4">
+        Featured Projects
+      </h2>
+
+      <p class="text-slate-600">
+        Discover some of our most recent and impactful projects.
+      </p>
+
     </div>
+
+    <!-- GRID -->
     <div class="grid md:grid-cols-3 gap-6">
-     <div class="project-card rounded-2xl h-72 overflow-hidden relative group cursor-pointer">
-      <div class="service-card-img overflow-hidden">
 
-    <img 
-        src="src/deckprojeto.jpg"
-        alt="Deck Construction"
-        class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
-    >
+      <!-- CARD 1 -->
+      <div class="project-card rounded-2xl overflow-hidden relative group cursor-pointer h-72">
 
-</div>
-      <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition duration-500 flex items-end p-6">
-       <div class="project-info">
-        <p class="text-white text-xs font-semibold uppercase">New Deck</p>
-        <h3 class="text-white font-bold text-lg">Cape Cod</h3>
-        <p class="text-white/60 text-sm mt-1">Boston, MA • 2023</p>
-       </div>
+        <!-- IMAGEM -->
+        <img 
+          src="src/deckprojeto.jpg"
+          alt="Deck Construction"
+          class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+        >
+
+        <!-- OVERLAY ESCURO -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#020b2d] via-[#020b2d]/40 to-transparent"></div>
+
+        <!-- TEXTO -->
+        <div class="absolute bottom-0 left-0 p-6 z-10 w-full">
+
+          <p class="text-white text-xs font-semibold uppercase mb-1">
+            New Deck
+          </p>
+
+          <h3 class="text-white font-bold text-2xl leading-tight">
+            Cape Cod
+          </h3>
+
+          <p class="text-white/70 text-sm mt-2">
+            Boston, MA • 2023
+          </p>
+
+        </div>
+
       </div>
-     </div>
-     <div class="project-card rounded-2xl h-72 overflow-hidden relative group cursor-pointer">
-      <div class="service-card-img overflow-hidden">
 
-    <img 
-        src="src/cozinhaprojeto.jpg"
-        alt="Kitchen Remodeling"
-        class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
-    >
+      <!-- CARD 2 -->
+      <div class="project-card rounded-2xl overflow-hidden relative group cursor-pointer h-72">
 
-</div>
-      <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition duration-500 flex items-end p-6">
-       <div class="project-info">
-        <p class="text-white text-xs font-semibold uppercase">New Kitchen</p>
-        <h3 class="text-white font-bold text-lg">Kitchen Remodeling in Framingham</h3>
-        <p class="text-white/60 text-sm mt-1">Clinton, MA • 2020</p>
-       </div>
+        <!-- IMAGEM -->
+        <img 
+          src="src/cozinhaprojeto.jpg"
+          alt="Kitchen Remodeling"
+          class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+        >
+
+        <!-- OVERLAY ESCURO -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#020b2d] via-[#020b2d]/40 to-transparent"></div>
+
+        <!-- TEXTO -->
+        <div class="absolute bottom-0 left-0 p-6 z-10 w-full">
+
+          <p class="text-white text-xs font-semibold uppercase mb-1">
+            New Kitchen
+          </p>
+
+          <h3 class="text-white font-bold text-2xl leading-tight">
+            Kitchen Remodeling in Framingham
+          </h3>
+
+          <p class="text-white/70 text-sm mt-2">
+            Clinton, MA • 2020
+          </p>
+
+        </div>
+
       </div>
-     </div>
-     <div class="project-card rounded-2xl h-72 overflow-hidden relative group cursor-pointer">
-      <div class="service-card-img overflow-hidden">
 
-    <img 
-        src="src/casaprojeto.jpg"
-        alt="Kitchen Remodeling"
-        class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
-    >
+      <!-- CARD 3 -->
+      <div class="project-card rounded-2xl overflow-hidden relative group cursor-pointer h-72">
 
-</div>
-      <div class="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/40 transition duration-500 flex items-end p-6">
-       <div class="project-info">
-        <p class="text-white text-xs font-semibold uppercase">House construction</p>
-        <h3 class="text-white font-bold text-lg">House built from scratch</h3>
-        <p class="text-white/60 text-sm mt-1">Worcester, MA • 2026</p>
-       </div>
+        <!-- IMAGEM -->
+        <img 
+          src="src/casaprojeto.jpg"
+          alt="House Construction"
+          class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+        >
+
+        <!-- OVERLAY ESCURO -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#020b2d] via-[#020b2d]/40 to-transparent"></div>
+
+        <!-- TEXTO -->
+        <div class="absolute bottom-0 left-0 p-6 z-10 w-full">
+
+          <p class="text-white text-xs font-semibold uppercase mb-1">
+            House Construction
+          </p>
+
+          <h3 class="text-white font-bold text-2xl leading-tight">
+            House built from scratch
+          </h3>
+
+          <p class="text-white/70 text-sm mt-2">
+            Worcester, MA • 2026
+          </p>
+
+        </div>
+
       </div>
-     </div>
+      <div class="flex flex-wrap gap-4 animate-fade-up animate-delay-3"><a href="Projects.html" class="btn-primary px-8 py-4 rounded-lg font-semibold text-sm inline-flex items-center gap-2 shadow-2xl"> View Project <i data-lucide="arrow-center" class="w-4 h-4"></i> </a> 
     </div>
-   </div>
-  </section><!-- CTA Section -->
+    </div>
+  </div>
+</section>
   <section id="contact" class="cta-section py-24 relative overflow-hidden">
    <div class="absolute inset-0 grid-pattern opacity-30"></div>
    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
