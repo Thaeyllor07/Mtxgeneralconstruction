@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MTX General Construction | Projects</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Space Grotesk',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#050510;
+color:white;
+overflow-x:hidden;
+}
+
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
+.logo-fixed{
+
+position:fixed;
+
+top:0;
+left:24px;
+
+height:115px;
+
+z-index:1000;
+
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.nav-fixed{
+
+position:fixed;
+
+top:0;
+left:0;
+right:0;
+
+z-index:999;
+
+background:rgba(5,5,16,.95);
+
+backdrop-filter:blur(15px);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+
+}
+
+.nav-link{
+
+position:relative;
+
+transition:.3s;
+
+color:white;
+
+}
+
+.nav-link:hover{
+
+color:#D4AF37;
+
+}
+
+.nav-link::after{
+
+content:'';
+
+position:absolute;
+
+left:0;
+bottom:-6px;
+
+width:0;
+height:2px;
+
+background:#D4AF37;
+
+transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+width:100%;
+
+}
+
+.gold-btn{
+
+background:
+linear-gradient(
+135deg,
+#C8A96B,
+#D4AF37
+);
+
+color:#050510;
+
+font-weight:700;
+
+transition:.3s;
+
+}
+
+.gold-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+
+padding-top:180px;
+padding-bottom:120px;
+
+background:
+linear-gradient(
+180deg,
+#050510,
+#090918
+);
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:
+clamp(
+3rem,
+8vw,
+5rem
+);
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+color:rgba(255,255,255,.75);
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+/* ========================= */
+/* FILTERS */
+/* ========================= */
+
+.filter-btn{
+
+padding:12px 24px;
+
+border-radius:999px;
+
+background:#101020;
+
+border:
+1px solid rgba(255,255,255,.1);
+
+transition:.3s;
+
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+
+background:#D4AF37;
+
+color:#050510;
+
+}
+
+/* ========================= */
+/* PROJECTS */
+/* ========================= */
+
+.project-card{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:20px;
+
+cursor:pointer;
+
+transition:.4s;
+
+background:#111122;
+
+}
+
+.project-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.project-card img{
+
+width:100%;
+height:300px;
+
+object-fit:cover;
+
+transition:.5s;
+
+}
+
+.project-card:hover img{
+
+transform:scale(1.05);
+
+}
+
+.project-overlay{
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,.85),
+transparent
+);
+
+}
+
+.project-content{
+
+position:absolute;
+
+bottom:0;
+
+padding:24px;
+
+width:100%;
+
+}
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.gallery-modal{
+
+position:fixed;
+
+inset:0;
+
+background:
+rgba(0,0,0,.95);
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+z-index:99999;
+
+}
+
+.gallery-modal.active{
+
+display:flex;
+
+}
+
+.gallery-modal img{
+
+max-width:90%;
+max-height:85vh;
+
+border-radius:15px;
+
+}
+
+.close-modal{
+
+position:absolute;
+
+top:25px;
+right:40px;
+
+font-size:50px;
+
+cursor:pointer;
+
+}
+
+.gallery-prev,
+.gallery-next{
+
+position:absolute;
+
+top:50%;
+
+transform:
+translateY(-50%);
+
+font-size:55px;
+
+cursor:pointer;
+
+padding:10px 18px;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:10px;
+
+}
+
+.gallery-prev{
+
+left:30px;
+
+}
+
+.gallery-next{
+
+right:30px;
+
+}
+
+/* ========================= */
+/* MOBILE MENU */
+/* ========================= */
+
+.mobile-menu{
+
+position:fixed;
+
+inset:0;
+
+background:#050510;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+gap:30px;
+
+z-index:9999;
+
+}
+
+.mobile-menu a{
+
+font-size:24px;
+
+color:white;
+
+text-decoration:none;
+
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+
+background:#050510;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+
+}
+
+@media(max-width:768px){
+
+.logo-fixed {
+  position: fixed;
+  top: 0;
+  left: 24px;
+
+  z-index: 1000;
+
+  height: 115px;
+  width: auto;
+}
+
+.hero{
+
+padding-top:140px;
+
+}
+
+.gallery-prev{
+
+left:10px;
+
+}
+
+.gallery-next{
+
+right:10px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LOGO FIXA -->
+
+<div class="logo-fixed">
+
+<a href="index.html">
+
+<img
+src="src/logomoderno.png"
+alt="MTX Logo"
+style="
+height:110%;
+width:auto;
+object-fit:contain;
+filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));
+">
+
+</a>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav class="nav-fixed" id="navbar">
+
+<div class="max-w-7xl mx-auto px-10 py-6 flex justify-end items-center">
+
+<div class="hidden md:flex items-center gap-10">
+
+<a href="index.html#home"
+class="nav-link text-sm tracking-wide">
+Home
+</a>
+
+<a href="index.html#about"
+class="nav-link text-sm tracking-wide">
+About
+</a>
+
+<a href="index.html#services"
+class="nav-link text-sm tracking-wide">
+Services
+</a>
+
+<a href="Projects.html"
+class="nav-link text-sm tracking-wide text-yellow-400">
+Portfolio
+</a>
+
+<div class="flex items-center gap-2 text-sm text-white">
+
+<span class="text-lg">🇺🇸</span>
+
+<span>Boston - USA</span>
+
+</div>
+
+<a
+href="tel:+17742852685"
+class="flex items-center gap-2 text-sm text-white hover:text-yellow-400 transition">
+
+<i data-lucide="phone" class="w-4 h-4"></i>
+
+<span>+1 (774) 285-2685</span>
+
+</a>
+
+<a
+href="mailto:contact@mtxgeneralconstruction.com"
+class="gold-btn px-8 py-4 rounded-lg text-sm">
+
+Contact
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="mobile-menu hidden"
+style="display:none;">
+
+<button
+onclick="toggleMobile()"
+class="absolute top-6 right-6 text-white">
+
+<i data-lucide="x" class="w-7 h-7"></i>
+
+</button>
+
+<a href="index.html#home">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#services">Services</a>
+<a href="Projects.html">Portfolio</a>
+
+<a
+href="mailto:contact@mtxgeneralconstruction.com"
+class="gold-btn px-8 py-3 rounded-lg">
+
+Contact
+
+</a>
+
+</div>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="max-w-5xl mx-auto px-6">
+
+<h1>
+
+Our Projects
+
+</h1>
+
+<p>
+
+Browse our portfolio of kitchen remodeling,
+deck construction, painting, roofing,
+windows, siding, framing and complete
+house projects.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- PROJECTS SECTION INICIA NA PARTE 2 -->
+
+<!-- ===================================== -->
+<!-- PARTE 2 - PROJECTS -->
+<!-- ===================================== -->
+
+<section class="pb-24">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<!-- FILTERS -->
+
+<div class="flex flex-wrap justify-center gap-3 mb-16">
+
+<button
+class="filter-btn active"
+onclick="filterProjects('all',event)">
+
+All
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('kitchen',event)">
+
+Kitchen
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('deck',event)">
+
+Deck
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('painting',event)">
+
+Painting
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('roof',event)">
+
+Roofing
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('window',event)">
+
+Windows
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('stairs',event)">
+
+Stairs
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('framing',event)">
+
+Framing
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('siding',event)">
+
+Siding
+
+</button>
+
+<button
+class="filter-btn"
+onclick="filterProjects('house',event)">
+
+House
+
+</button>
+
+</div>
+
+<!-- GRID -->
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<!-- KITCHEN -->
+
+<div
+class="project-card"
+data-category="kitchen"
+onclick="openGallery('kitchen')">
+
+<img
+src="src2/kitchen1.jpeg"
+alt="Kitchen Remodeling">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Kitchen Remodeling
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Kitchen Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- DECK -->
+
+<div
+class="project-card"
+data-category="deck"
+onclick="openGallery('deck')">
+
+<img
+src="src/deckprojeto.jpg"
+alt="Deck Construction">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Deck Construction
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Deck Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- PAINTING -->
+
+<div
+class="project-card"
+data-category="painting"
+onclick="openGallery('painting')">
+
+<img
+src="src/pinturaprojeto.jpg"
+alt="Painting">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Painting
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Painting Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- ROOFING -->
+
+<div
+class="project-card"
+data-category="roof"
+onclick="openGallery('roof')">
+
+<img
+src="src2/roof2.jpeg"
+alt="Roofing">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Roofing
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Roofing Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- WINDOWS -->
+
+<div
+class="project-card"
+data-category="window"
+onclick="openGallery('window')">
+
+<img
+src="src/janelaprojeto.jpg"
+alt="Windows">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Windows
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Window Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- STAIRS -->
+
+<div
+class="project-card"
+data-category="stairs"
+onclick="openGallery('stairs')">
+
+<img
+src="src/escadaprojeto.jpg"
+alt="Stairs">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Custom Stairs
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Stair Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- FRAMING -->
+
+<div
+class="project-card"
+data-category="framing"
+onclick="openGallery('framing')">
+
+<img
+src="src/framingprojeto.jpg"
+alt="Framing">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Framing
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Framing Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- SIDING -->
+
+<div
+class="project-card"
+data-category="siding"
+onclick="openGallery('siding')">
+
+<img
+src="src/sidingprojeto.jpg"
+alt="Siding">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+Siding
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+Siding Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+<!-- HOUSE -->
+
+<div
+class="project-card"
+data-category="house"
+onclick="openGallery('house')">
+
+<img
+src="src/casaprojeto.jpg"
+alt="House Construction">
+
+<div class="project-overlay"></div>
+
+<div class="project-content">
+
+<p class="text-yellow-400 text-sm mb-2">
+
+House Construction
+
+</p>
+
+<h3 class="text-2xl font-semibold">
+
+House Projects
+
+</h3>
+
+<p class="text-white/70 mt-2">
+
+Click to view gallery
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS SECTION TERMINA -->
+
+<!-- PARTE 3 INICIA ABAIXO -->
+
+<!-- ===================================== -->
+<!-- PARTE 3 FINAL -->
+<!-- ===================================== -->
+
+<!-- GALLERY MODAL -->
+
+<div id="galleryModal" class="gallery-modal">
+
+<span
+class="close-modal"
+onclick="closeGallery()">
+
+&times;
+
+</span>
+
+<button
+class="gallery-prev"
+onclick="prevImage()">
+
+❮
+
+</button>
+
+<img
+id="galleryImage"
+src=""
+alt="Project Gallery">
+
+<button
+class="gallery-next"
+onclick="nextImage()">
+
+❯
+
+</button>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="py-16">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="grid md:grid-cols-4 gap-10 mb-12">
+
+<!-- LOGO -->
+
+<div>
+
+<img
+src="src/logomoderno.png"
+alt="MTX Logo"
+class="h-16 mb-4">
+
+<p class="text-white/60 text-sm">
+
+Professional construction and remodeling services throughout Massachusetts.
+
+</p>
+
+</div>
+
+<!-- SERVICES -->
+
+<div>
+
+<h4 class="font-semibold mb-4">
+
+Services
+
+</h4>
+
+<ul class="space-y-2 text-white/60 text-sm">
+
+<li>Kitchen Remodeling</li>
+<li>Deck Construction</li>
+<li>Painting</li>
+<li>Roofing</li>
+<li>Framing</li>
+
+</ul>
+
+</div>
+
+<!-- COMPANY -->
+
+<div>
+
+<h4 class="font-semibold mb-4">
+
+Company
+
+</h4>
+
+<ul class="space-y-2 text-white/60 text-sm">
+
+<li>
+<a href="index.html#about">
+About Us
+</a>
+</li>
+
+<li>
+<a href="Projects.html">
+Projects
+</a>
+</li>
+
+<li>
+<a href="index.html#services">
+Services
+</a>
+</li>
+
+</ul>
+
+</div>
+
+<!-- CONTACT -->
+
+<div>
+
+<h4 class="font-semibold mb-4">
+
+Contact
+
+</h4>
+
+<ul class="space-y-2 text-white/60 text-sm">
+
+<li>
+Boston - Massachusetts
+</li>
+
+<li>
++1 (774) 285-2685
+</li>
+
+<li>
+contact@mtxgeneralconstruction.com
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="border-t border-white/10 pt-8 text-center">
+
+<p class="text-white/30 text-xs">
+
+© 2026 MTX General Construction.
+All Rights Reserved.
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* ===================================== */
+/* GALERIAS */
+/* ===================================== */
+
+const galleries = {
+
+kitchen:[
+'src2/kitchen1.jpeg',
+'src2/kitchen2.jpeg',
+'src2/kitchen3.jpeg',
+'src2/kitchen4.jpeg',
+'src2/kitchen5.jpeg',
+'src2/kitchen6.jpeg',
+'src2/kitchen7.jpeg',
+'src2/kitchen8.jpeg',
+'src2/kitchen9.jpeg',
+'src2/kitchen10.jpeg',
+'src2/kitchen11.jpeg',
+'src2/kitchen12.jpeg',
+'src2/kitchen13.jpeg',
+'src2/kitchen14.jpeg',
+
+],
+
+deck:[
+'src2/deck001.jpg'
+],
+
+painting:[
+'src2/painting001.jpg'
+],
+
+roof:[
+'src2/roof1.jpeg',
+'src2/roof2.jpeg',
+'src2/roof3.jpeg',
+'src2/roof4.jpeg',
+'src2/roof5.jpeg',
+'src2/roof6.jpeg',
+'src2/roof7.jpeg',
+
+],
+
+window:[
+'src2/window001.jpg'
+],
+
+stairs:[
+'src2/stairs001.jpg'
+],
+
+framing:[
+'src2/framing001.jpg'
+],
+
+siding:[
+'src2/siding001.jpg'
+],
+
+house:[
+'src2/house001.jpg'
+]
+
+};
+
+/* ===================================== */
+
+let currentGallery = [];
+let currentIndex = 0;
+
+/* ===================================== */
+
+function openGallery(project){
+
+currentGallery = galleries[project];
+
+if(!currentGallery){
+
+alert('Gallery not found: ' + project);
+
+return;
+
+}
+
+if(currentGallery.length === 0){
+
+alert('No images registered.');
+
+return;
+
+}
+
+currentIndex = 0;
+
+const image =
+document.getElementById('galleryImage');
+
+image.onload = function(){
+
+console.log(
+'Image loaded:',
+currentGallery[currentIndex]
+);
+
+};
+
+image.onerror = function(){
+
+alert(
+'Image not found:\n' +
+currentGallery[currentIndex]
+);
+
+};
+
+image.src =
+currentGallery[currentIndex];
+
+document
+.getElementById('galleryModal')
+.classList.add('active');
+
+}
+
+/* ===================================== */
+
+function nextImage(){
+
+if(currentGallery.length <= 1){
+
+return;
+
+}
+
+currentIndex++;
+
+if(
+currentIndex >= currentGallery.length
+){
+
+currentIndex = 0;
+
+}
+
+document.getElementById(
+'galleryImage'
+).src =
+currentGallery[currentIndex];
+
+}
+
+/* ===================================== */
+
+function prevImage(){
+
+if(currentGallery.length <= 1){
+
+return;
+
+}
+
+currentIndex--;
+
+if(
+currentIndex < 0
+){
+
+currentIndex =
+currentGallery.length - 1;
+
+}
+
+document.getElementById(
+'galleryImage'
+).src =
+currentGallery[currentIndex];
+
+}
+
+/* ===================================== */
+
+function closeGallery(){
+
+document
+.getElementById('galleryModal')
+.classList.remove('active');
+
+}
+
+/* ===================================== */
+/* FECHAR FORA DO MODAL */
+/* ===================================== */
+
+document
+.getElementById('galleryModal')
+.addEventListener(
+'click',
+function(e){
+
+if(
+e.target.id === 'galleryModal'
+){
+
+closeGallery();
+
+}
+
+}
+);
+
+/* ===================================== */
+/* TECLADO */
+/* ===================================== */
+
+document.addEventListener(
+'keydown',
+function(e){
+
+if(e.key === 'Escape'){
+
+closeGallery();
+
+}
+
+if(e.key === 'ArrowRight'){
+
+nextImage();
+
+}
+
+if(e.key === 'ArrowLeft'){
+
+prevImage();
+
+}
+
+}
+);
+
+/* ===================================== */
+/* FILTROS */
+/* ===================================== */
+
+function filterProjects(
+category,
+event
+){
+
+const cards =
+document.querySelectorAll(
+'.project-card'
+);
+
+cards.forEach(card=>{
+
+if(
+category === 'all' ||
+card.dataset.category === category
+){
+
+card.style.display='block';
+
+}else{
+
+card.style.display='none';
+
+}
+
+});
+
+document
+.querySelectorAll('.filter-btn')
+.forEach(btn=>{
+
+btn.classList.remove(
+'active'
+);
+
+});
+
+event.target.classList.add(
+'active'
+);
+
+}
+
+/* ===================================== */
+
+lucide.createIcons();
+</script>
+
+</body>
+</html>
