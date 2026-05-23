@@ -478,6 +478,10 @@ filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));
 
 <div class="max-w-7xl mx-auto px-10 py-6 flex justify-end items-center">
 
+<button onclick="toggleMobile()" class="md:hidden text-white ml-auto">
+<i data-lucide="menu" class="w-8 h-8"></i>
+</button>
+
 <div class="hidden md:flex items-center gap-10">
 
 <a href="index.html#home"
@@ -1511,6 +1515,16 @@ event.target.classList.add(
 }
 
 /* ===================================== */
+
+
+function toggleMobile(){
+const menu=document.getElementById('mobileMenu');
+if(menu.style.display==='flex'){
+menu.style.display='none';
+}else{
+menu.style.display='flex';
+}
+}
 
 lucide.createIcons();
 </script>
