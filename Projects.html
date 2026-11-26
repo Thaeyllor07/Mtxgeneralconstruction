@@ -1,1541 +1,348 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en-US">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>MTX General Construction | Projects</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<script src="https://unpkg.com/lucide@latest"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Space Grotesk',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#050510;
-color:white;
-overflow-x:hidden;
-}
-
-/* ========================= */
-/* LOGO */
-/* ========================= */
-
-.logo-fixed{
-
-position:fixed;
-
-top:0;
-left:24px;
-
-height:115px;
-
-z-index:1000;
-
-}
-
-/* ========================= */
-/* NAVBAR */
-/* ========================= */
-
-.nav-fixed{
-
-position:fixed;
-
-top:0;
-left:0;
-right:0;
-
-z-index:999;
-
-background:rgba(5,5,16,.95);
-
-backdrop-filter:blur(15px);
-
-border-bottom:
-1px solid rgba(255,255,255,.08);
-
-}
-
-.nav-link{
-
-position:relative;
-
-transition:.3s;
-
-color:white;
-
-}
-
-.nav-link:hover{
-
-color:#D4AF37;
-
-}
-
-.nav-link::after{
-
-content:'';
-
-position:absolute;
-
-left:0;
-bottom:-6px;
-
-width:0;
-height:2px;
-
-background:#D4AF37;
-
-transition:.3s;
-
-}
-
-.nav-link:hover::after{
-
-width:100%;
-
-}
-
-.gold-btn{
-
-background:
-linear-gradient(
-135deg,
-#C8A96B,
-#D4AF37
-);
-
-color:#050510;
-
-font-weight:700;
-
-transition:.3s;
-
-}
-
-.gold-btn:hover{
-
-transform:translateY(-2px);
-
-}
-
-/* ========================= */
-/* HERO */
-/* ========================= */
-
-.hero{
-
-padding-top:180px;
-padding-bottom:120px;
-
-background:
-linear-gradient(
-180deg,
-#050510,
-#090918
-);
-
-text-align:center;
-
-}
-
-.hero h1{
-
-font-size:
-clamp(
-3rem,
-8vw,
-5rem
-);
-
-font-weight:700;
-
-margin-bottom:20px;
-
-}
-
-.hero p{
-
-color:rgba(255,255,255,.75);
-
-max-width:700px;
-
-margin:auto;
-
-}
-
-/* ========================= */
-/* FILTERS */
-/* ========================= */
-
-.filter-btn{
-
-padding:12px 24px;
-
-border-radius:999px;
-
-background:#101020;
-
-border:
-1px solid rgba(255,255,255,.1);
-
-transition:.3s;
-
-}
-
-.filter-btn:hover,
-.filter-btn.active{
-
-background:#D4AF37;
-
-color:#050510;
-
-}
-
-/* ========================= */
-/* PROJECTS */
-/* ========================= */
-
-.project-card{
-
-position:relative;
-
-overflow:hidden;
-
-border-radius:20px;
-
-cursor:pointer;
-
-transition:.4s;
-
-background:#111122;
-
-}
-
-.project-card:hover{
-
-transform:translateY(-8px);
-
-}
-
-.project-card img{
-
-width:100%;
-height:300px;
-
-object-fit:cover;
-
-transition:.5s;
-
-}
-
-.project-card:hover img{
-
-transform:scale(1.05);
-
-}
-
-.project-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-linear-gradient(
-to top,
-rgba(0,0,0,.85),
-transparent
-);
-
-}
-
-.project-content{
-
-position:absolute;
-
-bottom:0;
-
-padding:24px;
-
-width:100%;
-
-}
-
-/* ========================= */
-/* MODAL */
-/* ========================= */
-
-.gallery-modal{
-
-position:fixed;
-
-inset:0;
-
-background:
-rgba(0,0,0,.95);
-
-display:none;
-
-align-items:center;
-justify-content:center;
-
-z-index:99999;
-
-}
-
-.gallery-modal.active{
-
-display:flex;
-
-}
-
-.gallery-modal img{
-
-max-width:90%;
-max-height:85vh;
-
-border-radius:15px;
-
-}
-
-.close-modal{
-
-position:absolute;
-
-top:25px;
-right:40px;
-
-font-size:50px;
-
-cursor:pointer;
-
-}
-
-.gallery-prev,
-.gallery-next{
-
-position:absolute;
-
-top:50%;
-
-transform:
-translateY(-50%);
-
-font-size:55px;
-
-cursor:pointer;
-
-padding:10px 18px;
-
-background:
-rgba(255,255,255,.08);
-
-border-radius:10px;
-
-}
-
-.gallery-prev{
-
-left:30px;
-
-}
-
-.gallery-next{
-
-right:30px;
-
-}
-
-/* ========================= */
-/* MOBILE MENU */
-/* ========================= */
-
-.mobile-menu{
-
-position:fixed;
-
-inset:0;
-
-background:#050510;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-gap:30px;
-
-z-index:9999;
-
-}
-
-.mobile-menu a{
-
-font-size:24px;
-
-color:white;
-
-text-decoration:none;
-
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-footer{
-
-background:#050510;
-
-border-top:
-1px solid rgba(255,255,255,.08);
-
-}
-
-@media(max-width:768px){
-
-.logo-fixed {
-  position: fixed;
-  top: 0;
-  left: 24px;
-
-  z-index: 1000;
-
-  height: 115px;
-  width: auto;
-}
-
-.hero{
-
-padding-top:140px;
-
-}
-
-.gallery-prev{
-
-left:10px;
-
-}
-
-.gallery-next{
-
-right:10px;
-
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Projects | MTX General Construction</title>
+  <meta name="description" content="Portfolio of MTX General Construction: kitchen remodeling, decks, painting, roofing, windows, stairs, siding, framing and complete houses in Massachusetts.">
+  <meta name="theme-color" content="#000012">
+  <link rel="icon" type="image/png" href="src/logo-mtx.png">
+  <link rel="apple-touch-icon" href="src/logo-mtx.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects | MTX General Construction">
+  <meta property="og:description" content="Browse our portfolio of construction and renovation projects in the Boston area.">
+  <meta property="og:image" content="src/casaprojeto.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-<!-- LOGO FIXA -->
-
-<div class="logo-fixed">
-
-<a href="index.html">
-
-<img
-src="src/logomoderno.png"
-alt="MTX Logo"
-style="
-height:110%;
-width:auto;
-object-fit:contain;
-filter:drop-shadow(0 4px 12px rgba(0,0,0,.15));
-">
-
-</a>
-
-</div>
-
-<!-- NAVBAR -->
-
-<nav class="nav-fixed" id="navbar">
-
-<div class="max-w-7xl mx-auto px-10 py-6 flex justify-end items-center">
-
-<div class="md:hidden flex items-center gap-3 ml-auto">
-
-<a href="tel:+17742852685" class="text-white text-sm font-semibold">
-📞 (774) 285-2685
-</a>
-
-<button onclick="toggleMobile()" class="text-white text-3xl">
-☰
-</button>
-
-</div>
-
-<div class="hidden md:flex items-center gap-10">
-
-<a href="index.html#home"
-class="nav-link text-sm tracking-wide">
-Home
-</a>
-
-<a href="index.html#about"
-class="nav-link text-sm tracking-wide">
-About
-</a>
-
-<a href="index.html#services"
-class="nav-link text-sm tracking-wide">
-Services
-</a>
-
-<a href="Projects.html"
-class="nav-link text-sm tracking-wide text-yellow-400">
-Portfolio
-</a>
-
-<div class="flex items-center gap-2 text-sm text-white">
-
-<span class="text-lg">🇺🇸</span>
-
-<span>Boston - USA</span>
-
-</div>
-
-<a
-href="tel:+17742852685"
-class="flex items-center gap-2 text-sm text-white hover:text-yellow-400 transition">
-
-<i data-lucide="phone" class="w-4 h-4"></i>
-
-<span>+1 (774) 285-2685</span>
-
-</a>
-
-<a
-href="mailto:marc@mtxgeneralconstruction.com"
-class="gold-btn px-8 py-4 rounded-lg text-sm">
-
-Contact
-
-</a>
-
-</div>
-
-</div>
-
-</nav>
-
-<!-- MOBILE MENU -->
-
-<div
-id="mobileMenu"
-class="mobile-menu hidden"
-style="display:none;">
-
-<button
-onclick="toggleMobile()"
-class="absolute top-6 right-6 text-white">
-
-<i data-lucide="x" class="w-7 h-7"></i>
-
-</button>
-
-<a href="index.html#home">Home</a>
-<a href="index.html#about">About</a>
-<a href="index.html#services">Services</a>
-<a href="Projects.html">Portfolio</a>
-
-<a
-href="mailto:marc@mtxgeneralconstruction.com"
-class="gold-btn px-8 py-3 rounded-lg">
-
-Contact
-
-</a>
-
-</div>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="max-w-5xl mx-auto px-6">
-
-<h1>
-
-Our Projects
-
-</h1>
-
-<p>
-
-Browse our portfolio of kitchen remodeling,
-deck construction, painting, roofing,
-windows, siding, framing and complete
-house projects.
-
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- PROJECTS SECTION INICIA NA PARTE 2 -->
-
-<!-- ===================================== -->
-<!-- PARTE 2 - PROJECTS -->
-<!-- ===================================== -->
-
-<section class="pb-24">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<!-- FILTERS -->
-
-<div class="flex flex-wrap justify-center gap-3 mb-16">
-
-<button
-class="filter-btn active"
-onclick="filterProjects('all',event)">
-
-All
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('kitchen',event)">
-
-Kitchen
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('deck',event)">
-
-Deck
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('painting',event)">
-
-Painting
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('roof',event)">
-
-Roofing
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('window',event)">
-
-Windows
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('stairs',event)">
-
-Stairs
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('framing',event)">
-
-Framing
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('siding',event)">
-
-Siding
-
-</button>
-
-<button
-class="filter-btn"
-onclick="filterProjects('house',event)">
-
-House
-
-</button>
-
-</div>
-
-<!-- GRID -->
-
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-<!-- KITCHEN -->
-
-<div
-class="project-card"
-data-category="kitchen"
-onclick="openGallery('kitchen')">
-
-<img
-src="src2/kitchen1.jpeg"
-alt="Kitchen Remodeling">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Kitchen Remodeling
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Kitchen Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- DECK -->
-
-<div
-class="project-card"
-data-category="deck"
-onclick="openGallery('deck')">
-
-<img
-src="src/deckprojeto.jpg"
-alt="Deck Construction">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Deck Construction
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Deck Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- PAINTING -->
-
-<div
-class="project-card"
-data-category="painting"
-onclick="openGallery('painting')">
-
-<img
-src="src2/pintura1.jpeg"
-alt="Painting">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Painting
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Painting Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- ROOFING -->
-
-<div
-class="project-card"
-data-category="roof"
-onclick="openGallery('roof')">
-
-<img
-src="src2/roof2.jpeg"
-alt="Roofing">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Roofing
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Roofing Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- WINDOWS -->
-
-<div
-class="project-card"
-data-category="window"
-onclick="openGallery('window')">
-
-<img
-src="src2/window2.jpeg"
-alt="Windows">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Windows
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Window Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- STAIRS -->
-
-<div
-class="project-card"
-data-category="stairs"
-onclick="openGallery('stairs')">
-
-<img
-src="src2/escada1.jpeg"
-alt="Stairs">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Custom Stairs
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Stair Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- FRAMING -->
-
-<div
-class="project-card"
-data-category="framing"
-onclick="openGallery('framing')">
-
-<img
-src="src2/Framing1.jpeg"
-alt="Framing">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Framing
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Framing Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- SIDING -->
-
-<div
-class="project-card"
-data-category="siding"
-onclick="openGallery('siding')">
-
-<img
-src="src2/siding1.jpeg"
-alt="Siding">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-Siding
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-Siding Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-<!-- HOUSE -->
-
-<div
-class="project-card"
-data-category="house"
-onclick="openGallery('house')">
-
-<img
-src="src/casaprojeto.jpg"
-alt="House Construction">
-
-<div class="project-overlay"></div>
-
-<div class="project-content">
-
-<p class="text-yellow-400 text-sm mb-2">
-
-House Construction
-
-</p>
-
-<h3 class="text-2xl font-semibold">
-
-House Projects
-
-</h3>
-
-<p class="text-white/70 mt-2">
-
-Click to view gallery
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJECTS SECTION TERMINA -->
-
-<!-- PARTE 3 INICIA ABAIXO -->
-
-<!-- ===================================== -->
-<!-- PARTE 3 FINAL -->
-<!-- ===================================== -->
-
-<!-- GALLERY MODAL -->
-
-<div id="galleryModal" class="gallery-modal">
-
-<span
-class="close-modal"
-onclick="closeGallery()">
-
-&times;
-
-</span>
-
-<button
-class="gallery-prev"
-onclick="prevImage()">
-
-❮
-
-</button>
-
-<img
-id="galleryImage"
-src=""
-alt="Project Gallery">
-
-<button
-class="gallery-next"
-onclick="nextImage()">
-
-❯
-
-</button>
-
-</div>
-
-<!-- FOOTER -->
-
-<footer class="py-16">
-
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="grid md:grid-cols-4 gap-10 mb-12">
-
-<!-- LOGO -->
-
-<div>
-
-<img
-src="src/logomoderno.png"
-alt="MTX Logo"
-class="h-16 mb-4">
-
-<p class="text-white/60 text-sm">
-
-Professional construction and remodeling services throughout Massachusetts.
-
-</p>
-
-</div>
-
-<!-- SERVICES -->
-
-<div>
-
-<h4 class="font-semibold mb-4">
-
-Services
-
-</h4>
-
-<ul class="space-y-2 text-white/60 text-sm">
-
-<li>Kitchen Remodeling</li>
-<li>Deck Construction</li>
-<li>Painting</li>
-<li>Roofing</li>
-<li>Framing</li>
-
-</ul>
-
-</div>
-
-<!-- COMPANY -->
-
-<div>
-
-<h4 class="font-semibold mb-4">
-
-Company
-
-</h4>
-
-<ul class="space-y-2 text-white/60 text-sm">
-
-<li>
-<a href="index.html#about">
-About Us
-</a>
-</li>
-
-<li>
-<a href="Projects.html">
-Projects
-</a>
-</li>
-
-<li>
-<a href="index.html#services">
-Services
-</a>
-</li>
-
-</ul>
-
-</div>
-
-<!-- CONTACT -->
-
-<div>
-
-<h4 class="font-semibold mb-4">
-
-Contact
-
-</h4>
-
-<ul class="space-y-2 text-white/60 text-sm">
-
-<li>
-Boston - Massachusetts
-</li>
-
-<li>
-+1 (774) 285-2685
-</li>
-
-<li>
-marc@mtxgeneralconstruction.com
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="border-t border-white/10 pt-8 text-center">
-
-<p class="text-white/30 text-xs">
-
-© 2026 MTX General Construction.
-All Rights Reserved.
-
-</p>
-
-</div>
-
-</div>
-
-</footer>
-
-<!-- JAVASCRIPT -->
-
-<script>
-
-/* ===================================== */
-/* GALERIAS */
-/* ===================================== */
-
-const galleries = {
-
-kitchen:[
-'src2/kitchen1.jpeg',
-'src2/kitchen2.jpeg',
-'src2/kitchen3.jpeg',
-'src2/kitchen4.jpeg',
-'src2/kitchen5.jpeg',
-'src2/kitchen6.jpeg',
-'src2/kitchen7.jpeg',
-'src2/kitchen8.jpeg',
-'src2/kitchen9.jpeg',
-'src2/kitchen10.jpeg',
-'src2/kitchen11.jpeg',
-'src2/kitchen12.jpeg',
-'src2/kitchen13.jpeg',
-'src2/kitchen14.jpeg',
-'src2/kitchen15.jpeg',
-'src2/kitchen16.jpeg',
-'src2/kitchen17.jpeg',
-'src2/kitchen18.jpeg',
-],
-
-deck:[
-'src2/deck1.jpeg',
-'src2/deck2.jpeg'
-],
-
-painting:[
-'src2/pintura1.jpeg',
-],
-
-roof:[
-'src2/roof1.jpeg',
-'src2/roof2.jpeg',
-'src2/roof3.jpeg',
-'src2/roof4.jpeg',
-'src2/roof5.jpeg',
-'src2/roof6.jpeg',
-'src2/roof7.jpeg',
-
-],
-
-window:[
-'src2/window1.jpeg',
-'src2/window2.jpeg'
-],
-
-stairs:[
-'src2/escada1.jpeg',
-'src2/escada2.jpeg',
-'src2/escada3.jpeg',
-'src2/escada4.jpeg',
-'src2/escada5.jpeg',
-
-],
-
-framing:[
-'src2/Framing1.jpeg',
-'src2/Framing2.jpeg',
-'src2/Framing3.jpeg',
-'src2/Framing4.jpeg',
-'src2/Framing5.jpeg',
-],
-
-siding:[
-'src2/siding1.jpeg',
-'src2/siding2.jpeg',
-'src2/siding3.jpeg',
-'src2/siding4.jpeg',
-'src2/siding5.jpeg',
-'src2/siding6.jpeg',
-'src2/siding7.jpeg',
-'src2/siding8.jpeg',
-'src2/siding9.jpeg',
-'src2/siding10.jpeg',
-],
-
-house:[
-'src2/house001.jpg'
-]
-
-};
-
-/* ===================================== */
-
-let currentGallery = [];
-let currentIndex = 0;
-
-/* ===================================== */
-
-function openGallery(project){
-
-currentGallery = galleries[project];
-
-if(!currentGallery){
-
-alert('Gallery not found: ' + project);
-
-return;
-
-}
-
-if(currentGallery.length === 0){
-
-alert('No images registered.');
-
-return;
-
-}
-
-currentIndex = 0;
-
-const image =
-document.getElementById('galleryImage');
-
-image.onload = function(){
-
-console.log(
-'Image loaded:',
-currentGallery[currentIndex]
-);
-
-};
-
-image.onerror = function(){
-
-alert(
-'Image not found:\n' +
-currentGallery[currentIndex]
-);
-
-};
-
-image.src =
-currentGallery[currentIndex];
-
-document
-.getElementById('galleryModal')
-.classList.add('active');
-
-}
-
-/* ===================================== */
-
-function nextImage(){
-
-if(currentGallery.length <= 1){
-
-return;
-
-}
-
-currentIndex++;
-
-if(
-currentIndex >= currentGallery.length
-){
-
-currentIndex = 0;
-
-}
-
-document.getElementById(
-'galleryImage'
-).src =
-currentGallery[currentIndex];
-
-}
-
-/* ===================================== */
-
-function prevImage(){
-
-if(currentGallery.length <= 1){
-
-return;
-
-}
-
-currentIndex--;
-
-if(
-currentIndex < 0
-){
-
-currentIndex =
-currentGallery.length - 1;
-
-}
-
-document.getElementById(
-'galleryImage'
-).src =
-currentGallery[currentIndex];
-
-}
-
-/* ===================================== */
-
-function closeGallery(){
-
-document
-.getElementById('galleryModal')
-.classList.remove('active');
-
-}
-
-/* ===================================== */
-/* FECHAR FORA DO MODAL */
-/* ===================================== */
-
-document
-.getElementById('galleryModal')
-.addEventListener(
-'click',
-function(e){
-
-if(
-e.target.id === 'galleryModal'
-){
-
-closeGallery();
-
-}
-
-}
-);
-
-/* ===================================== */
-/* TECLADO */
-/* ===================================== */
-
-document.addEventListener(
-'keydown',
-function(e){
-
-if(e.key === 'Escape'){
-
-closeGallery();
-
-}
-
-if(e.key === 'ArrowRight'){
-
-nextImage();
-
-}
-
-if(e.key === 'ArrowLeft'){
-
-prevImage();
-
-}
-
-}
-);
-
-/* ===================================== */
-/* FILTROS */
-/* ===================================== */
-
-function filterProjects(
-category,
-event
-){
-
-const cards =
-document.querySelectorAll(
-'.project-card'
-);
-
-cards.forEach(card=>{
-
-if(
-category === 'all' ||
-card.dataset.category === category
-){
-
-card.style.display='block';
-
-}else{
-
-card.style.display='none';
-
-}
-
-});
-
-document
-.querySelectorAll('.filter-btn')
-.forEach(btn=>{
-
-btn.classList.remove(
-'active'
-);
-
-});
-
-event.target.classList.add(
-'active'
-);
-
-}
-
-/* ===================================== */
-
-
-function toggleMobile(){
-const menu=document.getElementById('mobileMenu');
-if(menu.style.display==='flex'){
-menu.style.display='none';
-}else{
-menu.style.display='flex';
-}
-}
-
-lucide.createIcons();
-</script>
-
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+      <a href="index.html" class="site-logo shrink-0" aria-label="MTX General Construction - Home">
+        <img src="src/logo-mtx.png" alt="MTX General Construction" width="600" height="401">
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Main">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="Projects.html" class="nav-link active" aria-current="page">Portfolio</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-6">
+        <a href="tel:+17742852685" class="flex items-center gap-2 text-sm text-white/85 hover:text-[#D4AF37] transition">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span>+1 (774) 285-2685</span>
+        </a>
+        <a href="mailto:marc@mtxgeneralconstruction.com?subject=Project%20Inquiry" class="btn-primary px-6 py-3 text-sm">Free Estimate</a>
+      </div>
+
+      <div class="flex lg:hidden items-center gap-2">
+        <a href="tel:+17742852685" class="icon-btn" aria-label="Call MTX: +1 (774) 285-2685">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+        </a>
+        <button type="button" class="icon-btn" data-menu-toggle data-menu-open aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE MENU ================= -->
+  <div class="menu-backdrop" data-menu-toggle></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true" aria-label="Mobile menu">
+    <div class="flex items-center justify-between mb-6">
+      <img src="src/logo-mtx.png" alt="" class="h-10 w-auto">
+      <button type="button" class="icon-btn" data-menu-toggle aria-label="Close menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="Projects.html" class="active" aria-current="page">Portfolio</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="mt-auto pt-8 space-y-3">
+      <a href="tel:+17742852685" class="btn-primary w-full py-3.5">
+        <i data-lucide="phone" class="w-5 h-5"></i> Call (774) 285-2685
+      </a>
+      <a href="mailto:marc@mtxgeneralconstruction.com?subject=Project%20Inquiry" class="btn-ghost w-full py-3.5">
+        <i data-lucide="mail" class="w-5 h-5"></i> Email us
+      </a>
+      <p class="text-center text-white/50 text-sm pt-2">Boston, Massachusetts - USA</p>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="relative text-center pt-[calc(var(--header-h)+64px)] pb-12 md:pt-[calc(var(--header-h)+96px)] md:pb-16" style="background:linear-gradient(180deg,#000012,#07071f)">
+      <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(212,175,55,.12),transparent 40%)"></div>
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6">
+        <p class="eyebrow mb-3">Portfolio</p>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-5">Our Projects</h1>
+        <div class="accent-line mx-auto mb-6"></div>
+        <p class="text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          Browse our portfolio of kitchen remodeling, deck construction, painting, roofing, windows, siding, framing and complete house projects.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="pb-20 md:pb-28" style="background:#07071f">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="filters mb-10 md:mb-14" role="toolbar" aria-label="Filter projects">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="kitchen">Kitchen</button>
+          <button type="button" class="filter-btn" data-filter="deck">Deck</button>
+          <button type="button" class="filter-btn" data-filter="painting">Painting</button>
+          <button type="button" class="filter-btn" data-filter="roof">Roofing</button>
+          <button type="button" class="filter-btn" data-filter="window">Windows</button>
+          <button type="button" class="filter-btn" data-filter="stairs">Stairs</button>
+          <button type="button" class="filter-btn" data-filter="framing">Framing</button>
+          <button type="button" class="filter-btn" data-filter="siding">Siding</button>
+          <button type="button" class="filter-btn" data-filter="house">House</button>
+        </div>
+
+        <!-- Os cartões são gerados automaticamente a partir da lista "projects" no script abaixo -->
+        <div id="projectGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"></div>
+
+        <div class="mt-16 text-center rounded-2xl border border-white/10 bg-white/[.03] p-8 md:p-12">
+          <h2 class="font-display text-2xl md:text-3xl text-white mb-3">Have a project in mind?</h2>
+          <p class="text-white/65 mb-8 max-w-lg mx-auto">Contact us for a free estimate. We'll be happy to help bring your idea to life.</p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="tel:+17742852685" class="btn-primary px-8 py-4"><i data-lucide="phone" class="w-5 h-5"></i> Call (774) 285-2685</a>
+            <a href="mailto:marc@mtxgeneralconstruction.com?subject=Project%20Inquiry" class="btn-ghost px-8 py-4"><i data-lucide="mail" class="w-5 h-5"></i> Send an Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= GALLERY MODAL ================= -->
+  <div id="galleryModal" class="gallery-modal" role="dialog" aria-modal="true" aria-label="Project gallery">
+    <p class="gallery-caption top" id="galleryTitle"></p>
+    <button type="button" class="gallery-close" id="galleryClose" aria-label="Close gallery"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <div class="stage">
+      <img id="galleryImage" src="" alt="">
+    </div>
+    <button type="button" class="gallery-nav gallery-prev" id="galleryPrev" aria-label="Previous photo"><i data-lucide="chevron-left" class="w-6 h-6"></i></button>
+    <button type="button" class="gallery-nav gallery-next" id="galleryNext" aria-label="Next photo"><i data-lucide="chevron-right" class="w-6 h-6"></i></button>
+    <p class="gallery-caption bottom" id="galleryCounter"></p>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer pt-16 pb-[calc(2rem+env(safe-area-inset-bottom))]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="src/logo-mtx.png" alt="MTX General Construction" class="h-16 w-auto mb-4" loading="lazy">
+          <p class="text-white/55 text-sm leading-relaxed">Professional construction and remodeling services throughout Massachusetts.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Services</h4>
+          <ul class="space-y-2 text-white/55 text-sm">
+            <li><a href="?filter=kitchen" data-filter-link="kitchen">Kitchen Remodeling</a></li>
+            <li><a href="?filter=deck" data-filter-link="deck">Decks</a></li>
+            <li><a href="?filter=siding" data-filter-link="siding">Siding</a></li>
+            <li><a href="?filter=framing" data-filter-link="framing">Framing</a></li>
+            <li><a href="?filter=roof" data-filter-link="roof">Roofing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Company</h4>
+          <ul class="space-y-2 text-white/55 text-sm">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="Projects.html">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
+          <ul class="space-y-3 text-white/55 text-sm">
+            <li class="flex items-start gap-2"><i data-lucide="map-pin" class="w-4 h-4 mt-0.5 shrink-0"></i> Boston, Massachusetts - USA</li>
+            <li><a href="tel:+17742852685" class="flex items-start gap-2"><i data-lucide="phone" class="w-4 h-4 mt-0.5 shrink-0"></i> +1 (774) 285-2685</a></li>
+            <li><a href="mailto:marc@mtxgeneralconstruction.com" class="flex items-start gap-2 break-all"><i data-lucide="mail" class="w-4 h-4 mt-0.5 shrink-0"></i> marc@mtxgeneralconstruction.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center">
+        <p class="text-white/35 text-xs">© <span data-year>2026</span> MTX General Construction. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* =====================================================
+     PROJETOS E GALERIAS
+     Para adicionar fotos: coloque o arquivo na pasta src2
+     e acrescente o caminho na lista "photos" do projeto.
+     ===================================================== */
+  const projects = [
+    { id: 'kitchen',  label: 'Kitchen Remodeling', title: 'Kitchen Projects', cover: 'src2/kitchen1.jpeg',
+      photos: Array.from({ length: 18 }, (_, i) => `src2/kitchen${i + 1}.jpeg`) },
+    { id: 'deck',     label: 'Deck Construction',  title: 'Deck Projects',    cover: 'src/deckprojeto.jpg',
+      photos: ['src2/deck1.jpeg', 'src2/deck2.jpeg', 'src/deckprojeto.jpg'] },
+    { id: 'painting', label: 'Painting',           title: 'Painting Projects', cover: 'src2/pintura1.jpeg',
+      photos: ['src2/pintura1.jpeg', 'src/pinturaindex.jpg'] },
+    { id: 'roof',     label: 'Roofing',            title: 'Roofing Projects', cover: 'src2/roof2.jpeg',
+      photos: ['src2/roof1.jpeg', 'src2/roof2.jpeg', 'src2/roof3.jpeg', 'src2/roof4.jpeg'] },
+    { id: 'window',   label: 'Windows',            title: 'Window Projects',  cover: 'src2/window2.jpeg',
+      photos: ['src2/window1.jpeg', 'src2/window2.jpeg'] },
+    { id: 'stairs',   label: 'Custom Stairs',      title: 'Stair Projects',   cover: 'src2/escada1.jpeg',
+      photos: ['src2/escada1.jpeg', 'src2/escada2.jpeg', 'src2/escada3.jpeg', 'src2/escada4.jpeg', 'src2/escada5.jpeg'] },
+    { id: 'framing',  label: 'Framing',            title: 'Framing Projects', cover: 'src2/Framing2.jpeg',
+      photos: ['src2/Framing1.jpeg', 'src2/Framing2.jpeg', 'src2/Framing3.jpeg', 'src2/Framing4.jpeg', 'src2/Framing5.jpeg'] },
+    { id: 'siding',   label: 'Siding',             title: 'Siding Projects',  cover: 'src2/siding2.jpeg',
+      photos: Array.from({ length: 10 }, (_, i) => `src2/siding${i + 1}.jpeg`) },
+    { id: 'house',    label: 'House Construction', title: 'House Projects',   cover: 'src/casaprojeto.jpg',
+      photos: ['src/casaprojeto.jpg'] }
+  ];
+
+  /* ---------- Monta os cartões ---------- */
+  const grid = document.getElementById('projectGrid');
+  grid.innerHTML = projects.map(p => `
+    <button type="button" class="project-card reveal" data-category="${p.id}" aria-label="Open ${p.title} gallery (${p.photos.length} photos)">
+      <img src="${p.cover}" alt="${p.label}" loading="lazy">
+      <div class="overlay"></div>
+      <div class="content">
+        <p class="badge mb-2">${p.label}</p>
+        <h3 class="text-xl sm:text-2xl font-semibold leading-tight">${p.title}</h3>
+        <p class="text-white/70 text-sm mt-2 flex items-center gap-1.5">
+          <i data-lucide="images" class="w-4 h-4"></i>
+          ${p.photos.length} ${p.photos.length === 1 ? 'photo' : 'photos'} · View gallery
+        </p>
+      </div>
+    </button>`).join('');
+
+  grid.querySelectorAll('.project-card').forEach(card =>
+    card.addEventListener('click', () => openGallery(card.dataset.category)));
+
+  /* ---------- Filtros ---------- */
+  function applyFilter(category) {
+    if (!projects.some(p => p.id === category)) category = 'all';
+    grid.querySelectorAll('.project-card').forEach(card => {
+      card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
+    });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      const on = btn.dataset.filter === category;
+      btn.classList.toggle('active', on);
+      btn.setAttribute('aria-pressed', String(on));
+      if (on) btn.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    });
+    const url = new URL(window.location);
+    if (category === 'all') url.searchParams.delete('filter'); else url.searchParams.set('filter', category);
+    history.replaceState(null, '', url);
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn =>
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
+
+  document.querySelectorAll('[data-filter-link]').forEach(a =>
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      applyFilter(a.dataset.filterLink);
+      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+
+  const initial = new URLSearchParams(location.search).get('filter');
+  if (initial) applyFilter(initial);
+
+  /* ---------- Galeria ---------- */
+  const modal = document.getElementById('galleryModal');
+  const img = document.getElementById('galleryImage');
+  const title = document.getElementById('galleryTitle');
+  const counter = document.getElementById('galleryCounter');
+  const prevBtn = document.getElementById('galleryPrev');
+  const nextBtn = document.getElementById('galleryNext');
+  let current = null, index = 0, lastFocus = null;
+
+  function show(i) {
+    const photos = current.photos;
+    index = (i + photos.length) % photos.length;
+    img.classList.add('loading');
+    img.src = photos[index];
+    img.alt = `${current.title} - photo ${index + 1}`;
+    counter.textContent = `${index + 1} / ${photos.length}`;
+    const multi = photos.length > 1;
+    prevBtn.style.display = nextBtn.style.display = multi ? '' : 'none';
+    // pré-carrega a próxima foto
+    if (multi) new Image().src = photos[(index + 1) % photos.length];
+  }
+
+  img.addEventListener('load', () => img.classList.remove('loading'));
+  img.addEventListener('error', () => {
+    // foto não encontrada: remove da lista e segue para a próxima, sem alertas na tela
+    img.classList.remove('loading');
+    if (current && current.photos.length > 1) {
+      current.photos.splice(index, 1);
+      show(index);
+    }
+  });
+
+  function openGallery(id) {
+    current = projects.find(p => p.id === id);
+    if (!current) return;
+    lastFocus = document.activeElement;
+    title.textContent = current.title;
+    show(0);
+    modal.classList.add('active');
+    document.body.classList.add('no-scroll');
+    document.getElementById('galleryClose').focus();
+  }
+
+  function closeGallery() {
+    modal.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+    img.src = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.getElementById('galleryClose').addEventListener('click', closeGallery);
+  prevBtn.addEventListener('click', () => show(index - 1));
+  nextBtn.addEventListener('click', () => show(index + 1));
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal || e.target.classList.contains('stage')) closeGallery();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') show(index + 1);
+    if (e.key === 'ArrowLeft') show(index - 1);
+  });
+
+  // Deslizar com o dedo (celular / tablet)
+  let touchX = null, touchY = null;
+  modal.addEventListener('touchstart', e => {
+    touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+  }, { passive: true });
+  modal.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(index + (dx < 0 ? 1 : -1));
+    else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) closeGallery();
+    touchX = touchY = null;
+  });
+  </script>
+  <script src="main.js" defer></script>
 </body>
 </html>
